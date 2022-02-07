@@ -1,7 +1,7 @@
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
-pages_to_delete = [0, 1, 2, 3, 6, 7] # 想要删除的页码，页码从0开始
-infile = PdfFileReader('test.pdf', 'rb')
+pages_to_delete = [0, 2] # 想要删除的页码，页码从0开始
+infile = PdfFileReader('material-pdf/test-add-blanlpage.pdf', 'rb')
 output = PdfFileWriter()
 
 for i in range(infile.getNumPages()):
@@ -9,5 +9,5 @@ for i in range(infile.getNumPages()):
         p = infile.getPage(i)
         output.addPage(p)
 
-with open('result.pdf', 'wb') as f:
+with open('material-pdf/test-add-blanlpage+del-some-page.pdf', 'wb') as f:
     output.write(f)
